@@ -28,62 +28,28 @@ class GamePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final GameController controller = GameController(false);
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 20.0),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Spacer(),
-              const GameStatusWidget(),
-              const Spacer(flex: 2),
-              BoardWidget(size: MediaQuery.of(context).size.width * 0.76),
-              const Spacer(),
-              const CurrentPlayerWidget(),
-              const Spacer(),
-              const GameActionWidget(),
-              const Spacer(),
+              BoardWidget(
+                controller,
+                size: MediaQuery.of(context).size.width * 0.76,
+              ),
+              const SizedBox(height: 30),
+              CurrentPlayerWidget(controller),
+              const SizedBox(height: 30),
+              GameActionWidget(controller: controller),
             ],
           ),
         ),
       ),
     );
   }
-}
-
-Future<bool?> showConfirmDialog({
-  required BuildContext context,
-  String title = "Confirm!",
-  required String content,
-}) async {
-  return showDialog<bool>(
-    context: context,
-    builder: (_) => AlertDialog(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-      titleTextStyle: const TextStyle(
-        color: Colors.blue,
-        fontSize: 20.0,
-        fontWeight: FontWeight.w600,
-      ),
-      title: Text(title),
-      content: Text(content),
-      actions: [
-        TextButton(
-          onPressed: () {
-            Navigator.of(context).pop(false);
-          },
-          child: const Text("Cancel"),
-        ),
-        TextButton(
-          onPressed: () {
-            Navigator.of(context).pop(true);
-          },
-          child: const Text("Ok"),
-        ),
-      ],
-    ),
-  );
 }

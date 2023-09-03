@@ -7,20 +7,20 @@ class GameTitleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        const Text(
+        Text(
           "Tic Tac Toe",
           style: TextStyle(
             fontSize: 34.0,
             fontWeight: FontWeight.bold,
           ),
         ),
-        const SizedBox(height: 30.0),
+        SizedBox(height: 30.0),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
+          children: [
             SizedBox(
               width: 54.0,
               height: 54.0,

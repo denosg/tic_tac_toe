@@ -1,7 +1,8 @@
 part of 'game_page.dart';
 
-class CurrentPlayerWidget extends GetWidget<GameController> {
-  const CurrentPlayerWidget({Key? key}) : super(key: key);
+class CurrentPlayerWidget extends StatelessWidget {
+  final GameController controller;
+  const CurrentPlayerWidget(this.controller, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

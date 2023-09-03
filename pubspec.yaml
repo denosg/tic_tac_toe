@@ -11,6 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   get: ^4.6.1
+  confetti: ^0.7.0
 
 dev_dependencies:
   flutter_lints: ^1.0.0

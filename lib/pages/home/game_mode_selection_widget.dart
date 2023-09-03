@@ -9,7 +9,7 @@ class GameModeSelectionWidget extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         const Text(
-          "Choose your play mode",
+          "Beat Denis at Tic Tac Toe !",
           style: TextStyle(
             fontSize: 20.0,
             fontWeight: FontWeight.bold,
@@ -19,20 +19,9 @@ class GameModeSelectionWidget extends StatelessWidget {
           height: 18.0,
         ),
         _GameButtonWidget(
-          label: "With AI",
+          label: "Let's play !",
           onPressed: () {
-            Get.to(() => const GamePage(),
-                binding: GamePageBinding(isMultiPlayer: false));
-          },
-        ),
-        const SizedBox(
-          height: 12.0,
-        ),
-        _GameButtonWidget(
-          label: "With a friend",
-          onPressed: () {
-            Get.to(() => const GamePage(),
-                binding: GamePageBinding(isMultiPlayer: true));
+            Get.to(() => const GamePage());
           },
         ),
       ],

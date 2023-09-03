@@ -1,7 +1,9 @@
 part of 'game_page.dart';
 
-class GameActionWidget extends GetWidget<GameController> {
-  const GameActionWidget({Key? key}) : super(key: key);
+class GameActionWidget extends StatelessWidget {
+  final GameController controller;
+  const GameActionWidget({Key? key, required this.controller})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

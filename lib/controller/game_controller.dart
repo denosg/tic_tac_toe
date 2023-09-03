@@ -29,7 +29,7 @@ class GameController extends GetxController {
     togglePlayer();
     if (!isMultiPlayer && gameResult.value == GameUtil.NO_WINNER_YET) {
       isAiPlaying.value = true;
-      await Future.delayed(const Duration(milliseconds: 1800));
+      await Future.delayed(const Duration(milliseconds: 1400));
       final _aiMove = await Future(
         () => ai.play(
           board,
@@ -68,9 +68,9 @@ class GameController extends GetxController {
 
   String? get currentPlayerMove {
     if (currentPlayer.value == GameUtil.Player1) {
-      return "Player 1's move";
+      return "Your move";
     } else if (currentPlayer.value == GameUtil.Player2) {
-      return isMultiPlayer ? "Player 2's move" : "AI's move";
+      return "Denis's move";
     }
     return null;
   }
@@ -79,9 +79,9 @@ class GameController extends GetxController {
     final _gameResult = gameResult.value;
     if (_gameResult != GameUtil.NO_WINNER_YET) {
       if (_gameResult == GameUtil.Player1) {
-        return "Player 1 wins";
+        return "You won !";
       } else if (_gameResult == GameUtil.Player2) {
-        return isMultiPlayer ? "Player 2 wins" : "AI wins";
+        return "Denis won !";
       } else if (_gameResult == GameUtil.DRAW) {
         return "Draw";
       }

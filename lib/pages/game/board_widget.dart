@@ -1,8 +1,10 @@
 part of 'game_page.dart';
 
-class BoardWidget extends GetWidget<GameController> {
+class BoardWidget extends StatelessWidget {
   final double size;
-  const BoardWidget({
+  final GameController controller;
+  const BoardWidget(
+    this.controller, {
     Key? key,
     required this.size,
   }) : super(key: key);
